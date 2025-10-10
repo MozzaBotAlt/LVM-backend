@@ -1,20 +1,16 @@
-<h1 align="center">Labsim Von MozzaBot</h1>
-
-<img width="1350" height="629" alt="image" src="https://github.com/user-attachments/assets/d864fe17-c042-4379-bb97-362efdfe8658" />
+<h1 align="center">Backend of Labsim Von MozzaBot</h1>
 
 <div align="center">
-  <strong>Educational Laboratory Simulator for Students and Teachers</strong>
+  <strong>Backend API of LVM</strong>
 </div>
 
 
 # Introduction
-Labsim was created by Long Infinity, Lithium class for MozzaBot Development Division(Education) and MRSM Langkawi.
-Usage of this software is for educational purposes and refer to other references for further understanding and information
-This website is mainly built by Ali MozzaBot I.
+Use of this is for educational purposes only
 
 ## URL to API
 URL to API is as listed below:
-- [Finalized](https://labsim.vercel.app)
+- [Render](https://lvm-backend-j0ws.onrender.com)
 
 ## Bugs?
 Bugs? Any ideas for improvements? Feedback?
