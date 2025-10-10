@@ -1,20 +1,16 @@
 import express from 'express';
-import data from './data';
+import data from './data.js';
 
 const app = express();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4000;
 
 app.get('/', (req, res) => {
   res.sendStatus(200);
 });
 
 app.get('/date', (req, res) => {
-  res.sendDate(new Date());
-});
-
-app.post('/data', (req, res) => {
-  res.json(data);
+  res.send(new Date().toString());
 });
 
 app.listen(PORT, () => {
