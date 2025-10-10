@@ -1,4 +1,5 @@
 import express from 'express';
+import data from './data';
 
 const app = express();
 
@@ -12,9 +13,8 @@ app.get('/date', (req, res) => {
   res.sendDate(new Date());
 });
 
-app.post('/data', express.json(), (req, res) => {
-  const receivedData = req.body;
-  res.json({ received: receivedData });
+app.post('/data', (req, res) => {
+  res.json(data);
 });
 
 app.listen(PORT, () => {
