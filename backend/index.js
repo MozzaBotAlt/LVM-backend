@@ -12,6 +12,11 @@ app.get('/date', (req, res) => {
   res.sendDate(new Date());
 });
 
+app.post('/data', express.json(), (req, res) => {
+  const receivedData = req.body;
+  res.json({ received: receivedData });
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
