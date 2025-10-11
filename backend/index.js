@@ -3,7 +3,6 @@ import cors from "cors";
 import data from "./data.js";
 import rateLimit from "express-rate-limit";
 
-const rateLimit = require("express-rate-limit");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
