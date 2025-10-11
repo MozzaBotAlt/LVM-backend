@@ -1,0 +1,4 @@
+[2025-10-11 04:58:13.320 AM] [32minfo[39m: 	[32mLogger initialized[39m
+[2025-10-11 04:58:13.327 AM] [32minfo[39m: 	[32mServer is running on http://localhost:4000[39m
+{"level":"info","message":"Logger initialized","timestamp":"2025-10-11 04:59:30.761 AM"}
+{"level":"info","message":"Server is running on http://localhost:4000","timestamp":"2025-10-11 04:59:30.769 AM"}
