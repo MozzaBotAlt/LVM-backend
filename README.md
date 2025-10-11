@@ -11,6 +11,7 @@ Use of this is for educational purposes only
 ## URL to API
 URL to API is as listed below:
 - [Render](https://lvm-backend-j0ws.onrender.com)
+- [shortened](https://tinyurl.com/lvm-backend)
 
 ## Bugs?
 Bugs? Any ideas for improvements? Feedback?

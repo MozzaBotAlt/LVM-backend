@@ -35,6 +35,12 @@ app.use(
 );
 
 //Request Handlers
+app.use((request, response, next) => {
+  console.log(`Client's IP: ${request.ip}`)
+  logger.info(`Client's IP: ${request.ip}`)
+  next();
+})
+
 app.get("/ip", (request, response) => {
   response.send(request.ip);
   logger.info(`IP endpoint accessed from IP: ${request.ip}`);
