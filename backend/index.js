@@ -14,7 +14,7 @@ app.use(cors({
 }))
 
 app.get("/", (req, res) => {
-  res.sendStatus("Status: ", 200);
+  res.sendStatus(200);
 });
 
 app.get("/date", (req, res) => {
