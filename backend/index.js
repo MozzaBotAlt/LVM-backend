@@ -2,9 +2,19 @@ import express from "express";
 import cors from "cors";
 import data from "./data.js";
 
+const rateLimit = require("express-rate-limit");
 const app = express();
 const PORT = process.env.PORT || 4000;
 
+const limiter = rateLimit({
+  windowMs: 60 * 1000, // 1 minutes
+  max: 100, // limit each IP to 100 requests per windowMs
+  message: 'Too many requests from this IP, please try again after a minute',
+  standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+  legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+});
+
+app.use(limiter);
 app.use(express.json());
 app.use(cors({
   origin: '*',
