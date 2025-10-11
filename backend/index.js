@@ -61,6 +61,3 @@ app.listen(PORT, () => {
 });
 
 //extra codes
-if (error) {
-  logger.error(`Error occurred: ${error.message}`);
-}
