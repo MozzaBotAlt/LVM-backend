@@ -1,6 +1,7 @@
 import express from "express";
 import cors from "cors";
 import data from "./data.js";
+import rateLimit from "express-rate-limit";
 
 const rateLimit = require("express-rate-limit");
 const app = express();
