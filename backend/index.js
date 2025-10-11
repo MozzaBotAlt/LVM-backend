@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
 });
 
 app.get("/date", (req, res) => {
-  res.send(new Date().toString());
+  res.json(new Date().toString());
 });
 
 app.get("/data", (req, res) => {
