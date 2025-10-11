@@ -2,6 +2,7 @@ import express from "express";
 import cors from "cors";
 import data from "./data.js";
 import rateLimit from "express-rate-limit";
+import helmet from "helmet";
 
 const app = express();
 const PORT = process.env.PORT || 4000;
@@ -16,7 +17,9 @@ const limiter = rateLimit({
 
 //App settings
 app.set("trust proxy", true);
+app.disable("x-powered-by");
 app.use(limiter);
+app.use(helmet());
 app.use(express.json());
 app.use(cors({
   origin: '*',
