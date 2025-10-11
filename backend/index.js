@@ -14,6 +14,8 @@ const limiter = rateLimit({
   legacyHeaders: false, // Disable the `X-RateLimit-*` headers
 });
 
+//App settings
+app.set("trust proxy", true);
 app.use(limiter);
 app.use(express.json());
 app.use(cors({
@@ -23,6 +25,7 @@ app.use(cors({
   credentials: true
 }))
 
+//Request Handlers
 app.get("/", (req, res) => {
   res.sendStatus(200);
 });
@@ -35,6 +38,7 @@ app.get("/data", (req, res) => {
   res.json(data);
 });
 
+//Port listen
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 });
