@@ -40,22 +40,26 @@ app.use((request, response, next) => {
 
 app.get("/ip", (request, response) => {
   response.send(request.ip);
-  logger.info(`IP endpoint accessed from IP: ${request.ip}`);
+  logger.info(`IP endpoint accessed from IP: ${req.ip}`);
+  console.log(`IP endpoint accessed from IP: ${req.ip}`);
 });
 
 app.get("/", (req, res) => {
-  res.sendStatus(200);
+  res.sendStatus(200)
   logger.info(`Root endpoint accessed from IP: ${req.ip}`);
+  console.log(`Root endpoint accessed from IP: ${req.ip}`);
 });
 
 app.get("/date", (req, res) => {
   res.json(new Date().toUTCString());
   logger.info(`Date endpoint accessed from IP: ${req.ip}`);
+  console.log(`Date endpoint accessed from IP: ${req.ip}`);
 });
 
 app.get("/data", (req, res) => {
   res.json(data);
   logger.info(`Data endpoint accessed from IP: ${req.ip}`);
+  console.log(`Data endpoint accessed from IP: ${req.ip}`);
 });
 
 //Port listen
