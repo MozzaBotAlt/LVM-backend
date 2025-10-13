@@ -17,7 +17,7 @@ const limiter = rateLimit({
 });
 
 //App settings
-app.set("trust proxy", 1 /* number of proxies between user and server */);
+app.set("trust proxy", 10 /* number of proxies between user and server */);
 app.disable("x-powered-by"); //Disabling fingerprinting
 app.use(limiter); //Apply rate limiter to all requests
 app.use(helmet()); //Apply helmet
