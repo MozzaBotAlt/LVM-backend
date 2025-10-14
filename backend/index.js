@@ -44,14 +44,24 @@ app.get("/ip", (request, response) => {
   console.log(`IP endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get("/", (req, res) => {
-  res.sendStatus(200)
+app.get('/', async (req, res) => {
+  try {
+    const data = await someAsyncFunction();
+    res.json(data);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
   logger.info(`Root endpoint accessed from IP: ${req.ip}`);
   console.log(`Root endpoint accessed from IP: ${req.ip}`);
 });
 
 app.get("/date", (req, res) => {
-  res.json(new Date().toUTCString());
+  const currentDate = new Date(); // Get the current date and time
+  const isoDateString = currentDate.toISOString(); // Convert to ISO string (e.g., "2025-10-14T14:45:00.000Z")
+  
+  // Send the ISO string in the response
+  res.json({ date: isoDateString });
+
   logger.info(`Date endpoint accessed from IP: ${req.ip}`);
   console.log(`Date endpoint accessed from IP: ${req.ip}`);
 });
