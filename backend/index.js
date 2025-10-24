@@ -47,7 +47,7 @@ app.get("/ip", (request, response) => {
   console.log(`IP endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get('/', async (req, res) => {
+app.get('/', (req, res) => {
   return {
     statusCode: 200,
     body: JSON.stringify({ message: 'OK' })
