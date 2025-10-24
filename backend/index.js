@@ -23,6 +23,8 @@ app.use(limiter); //Apply rate limiter to all requests
 app.use(helmet()); //Apply helmet
 app.use(express.json()); //Parse JSON bodies
 logger.info("Logger initialized");
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 //CORS settings
 app.use(
@@ -38,38 +40,52 @@ app.use((request, response, next) => {
   next();
 })
 
+//Get Requests
 app.get("/ip", (request, response) => {
-  response.send(request.ip);
+  response.status(201).send(request.ip);
   logger.info(`IP endpoint accessed from IP: ${req.ip}`);
   console.log(`IP endpoint accessed from IP: ${req.ip}`);
 });
 
 app.get('/', async (req, res) => {
-  try {
-    const data = await someAsyncFunction();
-    res.json(data);
-  } catch (error) {
-    res.status(500).json({ message: error.message });
-  }
+  return {
+    statusCode: 200,
+    body: JSON.stringify({ message: 'OK' })
+  };
   logger.info(`Root endpoint accessed from IP: ${req.ip}`);
   console.log(`Root endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get("/date", (req, res) => {
+app.get("/api/date", (req, res) => {
   const currentDate = new Date(); // Get the current date and time
-  const isoDateString = currentDate.toISOString(); // Convert to ISO string (e.g., "2025-10-14T14:45:00.000Z")
-  
-  // Send the ISO string in the response
-  res.json({ date: isoDateString });
-
+  res.json({ date: currentDate });
   logger.info(`Date endpoint accessed from IP: ${req.ip}`);
   console.log(`Date endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get("/data", (req, res) => {
+app.get("/api/data", (req, res) => {
   res.json(data);
   logger.info(`Data endpoint accessed from IP: ${req.ip}`);
   console.log(`Data endpoint accessed from IP: ${req.ip}`);
+});
+
+app.get("/api/data/:name", (req, res) => {
+  console.log(req.params);
+  const { name } = req.params;
+  console user = data.find((user) => user.name === name);
+    if (user) res.status(200).send(user);
+    else res.status(404).send(`Not Found`);
+  logger.info(`Data endpoint accessed from IP: ${req.ip}`);
+  console.log(`Data endpoint accessed from IP: ${req.ip}`);
+});
+
+//Post Requests
+
+app.post("/", (req,res) => {
+  const user = req.body;
+  data.push(user);
+  console.log(`created new user`);
+  res.status(201).send(`user created`);
 });
 
 //Port listen

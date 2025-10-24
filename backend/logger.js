@@ -8,7 +8,7 @@ const fileRotateTransport = new winston.transports.DailyRotateFile({
   maxFiles: "14d",
   format: combine(timestamp({ format: "YYYY-MM-DD hh:mm:ss.SSS A" }), json()),
 });
-
+ 
 const logger = winston.createLogger({
   level: process.env.LOG_LEVEL || "info",
   transports: [fileRotateTransport],
