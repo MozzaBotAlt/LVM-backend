@@ -58,7 +58,7 @@ app.get('/', (req, res) => {
 
 app.get("/api/date", (req, res) => {
   const currentDate = new Date(); // Get the current date and time
-  res.json({ date: currentDate });
+  res.text(currentDate );
   logger.info(`Date endpoint accessed from IP: ${req.ip}`);
   console.log(`Date endpoint accessed from IP: ${req.ip}`);
 });
