@@ -72,7 +72,7 @@ app.get("/api/data", (req, res) => {
 app.get("/api/data/:name", (req, res) => {
   console.log(req.params);
   const { name } = req.params;
-  console user = data.find((user) => user.name === name);
+  const user = data.find((user) => user.name === name);
     if (user) res.status(200).send(user);
     else res.status(404).send(`Not Found`);
   logger.info(`Data endpoint accessed from IP: ${req.ip}`);
