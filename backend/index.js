@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import data from "./data.js";
+import dev from "./dev.js";
 import rateLimit from "express-rate-limit";
 import helmet from "helmet";
 import logger from "./logger.js";
@@ -57,37 +57,37 @@ app.get('/', (req, res) => {
 });
 
 app.get("/api/date", (req, res) => {
-  const currentDate = new Date(); // Get the current date and time
-  res.text(currentDate );
+  const currentDate = new Date();
+  res.json({ date: currentDate });
   logger.info(`Date endpoint accessed from IP: ${req.ip}`);
   console.log(`Date endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get("/api/data", (req, res) => {
-  res.json(data);
+app.get("/api/dev", (req, res) => {
+  res.json(dev);
   logger.info(`Data endpoint accessed from IP: ${req.ip}`);
   console.log(`Data endpoint accessed from IP: ${req.ip}`);
 });
 
-app.get("/api/data/:name", (req, res) => {
+app.get("/api/dev/:name", (req, res) => {
   console.log(req.params);
   const { name } = req.params;
-  const user = data.find((user) => user.name === name);
+  const user = dev.find((user) => user.name === name);
     if (user) res.status(200).send(user);
     else res.status(404).send(`Not Found`);
-  logger.info(`Data endpoint accessed from IP: ${req.ip}`);
-  console.log(`Data endpoint accessed from IP: ${req.ip}`);
+  logger.info(`Dev endpoint accessed from IP: ${req.ip}`);
+  console.log(`Dev endpoint accessed from IP: ${req.ip}`);
 });
 
 //Post Requests
-
+/*
 app.post("/", (req,res) => {
   const user = req.body;
   data.push(user);
   console.log(`created new user`);
   res.status(201).send(`user created`);
 });
-
+*/
 //Port listen
 app.listen(PORT, () => {
   logger.info(`Server is running on http://localhost:${PORT}`);
